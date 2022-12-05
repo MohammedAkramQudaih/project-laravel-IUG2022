@@ -18,9 +18,11 @@ class CreateProductsTable extends Migration
             $table->foreignId('store_id');
             $table->string('name');
             $table->text('description');
-            $table->double('price');
+            $table->double('base_price');
             $table->double('disc_price');
+            $table->enum('flag',[1,0])->default(0);
             $table->string('image');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

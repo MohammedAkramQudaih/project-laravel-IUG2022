@@ -18,6 +18,7 @@ class CreateStoresTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('logo');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
