@@ -2,52 +2,53 @@
 @extends('admin.master')
 @section('content')
 
-    <h2>Update Products: <b class="text-info">{{ $products->name }}</b></h2>
+    <h2>Update Products: <b class="text-info">{{ $product->name }}</b></h2>
     @include('admin.errors')
-    <form action="{{ route('admin.products.update',$products->id) }}" method="POST">
+    <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="mb-3">
-            <input type="text" class="form-control" name="name" placeholder="Name" value="{{ old('name',$products->name) }}">
+            <input type="text" class="form-control" name="name" placeholder="Name"
+                value="{{ old('name', $product->name) }}">
         </div>
 
         <div class="mb-3">
-            <input type="text" class="form-control" name="price" placeholder="Price" value="{{ old('price',$products->peice) }}">
-        </div>
-        
-        <div class="mb-3">
-            <label for="">Image</label>
-            <input type="file" class="form-control" name="image" >
+            <input type="text" class="form-control" name="base_price" placeholder="Base Price"
+                value="{{ old('price', $product->base_price) }}">
         </div>
         <div class="mb-3">
-            <label for="">Album</label>
-            <input type="file" class="form-control" multiple name="album[]" >
+            <input type="text" class="form-control" name="disc_price" placeholder="Discount Price"
+                value="{{ old('price', $product->disc_price) }}">
         </div>
+
         <div class="mb-3">
-            <input type="number" class="form-control" name="quantity" placeholder="Quantity" value="{{ old('quantity',$products->quantity) }}">
+            <label for="">Image</label><br>
+            <img src="{{ asset('images/' . $product->image) }}" width="100" height="100" alt="">
+            <input type="file" class="form-control" name="image">
         </div>
+
+
         <div class="mb-3">
-            <input type="text" class="form-control" name="serial_number" placeholder="Serial Number" value="{{ old('serial_number',$products->serial_number) }}">
-        </div>
-        <div class="mb-3">
-            <textarea icols="30" rows="10" class="form-control" name="description" placeholder="Description"> {{ old('description',$products->description) }}</textarea>
-        </div>
-        {{-- <div class="mb-3">
-            <select class="form-control" name="category_id" id="">
-                <option value="" selected disabled>Select Category</option>
-                @foreach ($categories as $category)
-                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+            <select class="form-control" name="store_id" id="">
+                @foreach ($stores as $store)
+                    <option value="{{ $store->id }}"@if ($product->store->id == $store->id) selected @endif>{{ $store->name }}
+                    </option>
                 @endforeach
             </select>
         </div>
         <div class="mb-3">
-            <select class="form-control" name="discount_id" id="">
-                <option value="" disabled selected>Select Discount</option>
-                @foreach ($discounts as $discount)
-                    <option value="{{ $discount->id}}">{{ $discount->name }}</option>
-                @endforeach
-            </select>
-        </div> --}}
+            <textarea icols="30" rows="10" class="form-control" name="description" placeholder="Description">{{ old('description', $product->description) }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <!-- Default switch -->
+            <div class="custom-control custom-switch">
+                <input type="checkbox" @if ($product->flag == 1) checked @endif class="custom-control-input"
+                    id="customSwitches" name="flag">
+                <label class="custom-control-label" for="customSwitches">Discount Price</label>
+            </div>
+        </div>
+
         <button class="btn btn-warning btn-lg">UPDATE</button>
     </form>
 @stop

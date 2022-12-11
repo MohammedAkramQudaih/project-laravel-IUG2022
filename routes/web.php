@@ -37,7 +37,7 @@ Route::put('admin/stores/{store}',[StoreController::class,'update'])->name('admi
 Route::delete('admin/stores/{store}',[StoreController::class,'destroy'])->name('admin.stores.destroy');
 Route::post('admin/stores/restore/{store}',[StoreController::class,'restore'])->name('admin.stores.restore');
 Route::get('admin/stores/{store}',[StoreController::class,'show'])->name('admin.stores.show');
-// Route::post('admin/stores/restore/{id}', 'App\Http\Controllers\Room\RoomController@restore');
+
 
 Route::get('admin/products',[ProductController::class,'index'])->name('admin.products.index');
 Route::get('admin/products/create',[ProductController::class,'create'])->name('admin.products.create');
@@ -45,6 +45,8 @@ Route::post('admin/products/',[ProductController::class,'store'])->name('admin.p
 Route::get('admin/products/edit/{product}',[ProductController::class,'edit'])->name('admin.products.edit');
 Route::put('admin/products/{product}',[ProductController::class,'update'])->name('admin.products.update');
 Route::delete('admin/products/{product}',[ProductController::class,'destroy'])->name('admin.products.destroy');
+Route::post('admin/products/restore/{product}',[ProductController::class,'restore'])->name('admin.products.restore');
+
 Route::get('admin/products/{product}',[ProductController::class,'show'])->name('admin.product.show');
 
 
