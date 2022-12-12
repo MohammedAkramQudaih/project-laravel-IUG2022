@@ -17,8 +17,8 @@ class Product extends Model
     {
         return $this->belongsTo(Store::class);
     }
-    public function payment_transaction()
+    public function Purchase_transaction()
     {
-        return $this->hasMany(Payment_transaction::class);
+        return $this->hasMany(Purchase_transaction::class);
     }
 }

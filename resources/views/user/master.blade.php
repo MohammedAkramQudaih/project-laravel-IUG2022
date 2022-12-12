@@ -6,7 +6,7 @@
 
 		@include('user.includes.navigation')
 
-		@include('user.includes.breadcrumb')
+		{{-- @include('user.includes.breadcrumb') --}}
 
 		<!-- SECTION -->
 		<div class="section">

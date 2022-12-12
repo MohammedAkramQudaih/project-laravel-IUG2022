@@ -76,8 +76,8 @@
                 </a>
                 <div id="PurchaseTransactions" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Show All Transactions</a>
-                        <a class="collapse-item" href="buttons.html">Total Of Purchases</a>
+                        <a class="collapse-item" href="{{ route('admin.PurchaseTransaction.index') }}">Show All Transactions</a>
+                        <a class="collapse-item" href="{{ route('admin.PurchaseTransaction.total') }}">Total Of Purchases</a>
                     </div>
                 </div>
             </li>

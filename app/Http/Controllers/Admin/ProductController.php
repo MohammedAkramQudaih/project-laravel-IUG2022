@@ -29,7 +29,7 @@ class ProductController extends Controller
     public function create()
     {
         //
-        $stores = Store::get();
+        $stores = Store::withTrashed()->get();
         return view('admin.products.create', compact('stores'));
     }
 
@@ -97,8 +97,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
-        $stores = Store::get();
+        $stores = Store::withTrashed()->get();
         $product = Product::findOrFail($id);
+        // dd($product);
 
         return view('admin.products.edit', compact('product', 'stores'));
     }

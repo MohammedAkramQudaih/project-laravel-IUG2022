@@ -1,4 +1,3 @@
-{{-- Categories Page --}}
 @extends('admin.master')
 @section('content')
 
@@ -20,6 +19,7 @@
         <tr class="bg-dark text-white">
             <th>ID</th>
             <th>Name</th>
+            <th>Store</th>
             <th>Base Price</th>
             <th>Discount Price</th>
             <th>Image</th>
@@ -33,6 +33,7 @@
                 <td>{{ $product->id }}</td>
                 {{-- <td>{{ $loop->iteration }}</td> --}}
                 <td>{{ $product->name }}</td>
+                <td>{{ $product->store->name }}</td>
                 <td>{{ $product->base_price }}</td>
                 <td>{{ $product->disc_price }}</td>
                 <td><img src="{{ asset('images/' . $product->image) }}" width="100" height="100" alt=""></td>
