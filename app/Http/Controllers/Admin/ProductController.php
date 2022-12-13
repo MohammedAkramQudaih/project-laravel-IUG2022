@@ -73,7 +73,7 @@ class ProductController extends Controller
 
         ]);
 
-        return redirect()->route('admin.products.index')->with('msg', 'Store Created Successfully')->with('type', 'success');
+        return redirect()->route('admin.products.index')->with('msg', 'Product Created Successfully')->with('type', 'success');
     }
 
     /**
@@ -148,7 +148,7 @@ class ProductController extends Controller
 
         ]);
 
-        return redirect()->route('admin.products.index')->with('msg', 'Store Updated Successfully')->with('type', 'primary');
+        return redirect()->route('admin.products.index')->with('msg', 'Product Updated Successfully')->with('type', 'primary');
     }
 
     /**
