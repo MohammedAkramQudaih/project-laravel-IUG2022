@@ -27,4 +27,5 @@
         @endforelse
 
     </table>
+    {{ $purchase_transactions->links() }}
 @stop
