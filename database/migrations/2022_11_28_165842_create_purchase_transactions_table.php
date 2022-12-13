@@ -16,6 +16,7 @@ class CreatePurchaseTransactionsTable extends Migration
         Schema::create('purchase_transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id');
+            $table->float('price');
             $table->softDeletes();
             $table->timestamps();
         });
